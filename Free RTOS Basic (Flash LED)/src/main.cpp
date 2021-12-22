@@ -30,5 +30,13 @@ void setup() {
 }
 
 void loop() {
-  // Do nothing
+  if( ifButton.isPressed() ){
+      
+      ifButton.setRelease( false );
+
+      ifLed.toggleBlink();
+
+      Serial.println("iFButton pressed !!! " );
+
+    }
 }

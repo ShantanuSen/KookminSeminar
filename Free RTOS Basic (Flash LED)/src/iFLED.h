@@ -15,13 +15,17 @@ iFBalance
 class  iFLED
  { 
      private : 
-        int32_t timeDelay = 500 ;         TaskHandle_t taskHandle;
+        int32_t timeDelay = 500 ;         
+        TaskHandle_t taskHandle;
         static  gpio_num_t pin;
+        bool blinkState = false;
 
     public:  
         iFLED(){};
         void init(gpio_num_t io, int core);
     
         static void taskFunc(void *pvParameters);
+        void toggleBlink();
+        bool  isBlinking ()  { return blinkState; }
 
 };

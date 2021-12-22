@@ -28,7 +28,7 @@ void iFButton::taskFunc(void *pvParameters)
   for (;;)
   {  
     if( isPressed() ){
-      setRelease( false );
+      // setRelease( false );
 
       Serial.println("iFButton pressed !!! " );
     }
@@ -65,5 +65,5 @@ void iFButton::init(gpio_num_t io, int core)
           core);
 
   int16_t level = digitalRead( pin );
-  Serial.println("iFButton level : " + String( level ) );
+  Serial.println("iFButton level : " + String( level ));
 }

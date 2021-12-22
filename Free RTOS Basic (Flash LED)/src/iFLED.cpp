@@ -18,6 +18,7 @@ void iFLED::taskFunc(void *pvParameters)
   portTickType delay = *(portTickType*)pvParameters;
 
   while(1) {
+    
     digitalWrite(pin, HIGH);
     vTaskDelay(delay / portTICK_PERIOD_MS);
 
@@ -40,5 +41,16 @@ void iFLED::init(gpio_num_t io, int core)
           &taskHandle, 
           core);
 
-  Serial.println("taskHandle ID: " + String( uxTaskPriorityGet( taskHandle ) ) );          
+  vTaskSuspend(taskHandle);          
+}
+
+void iFLED::toggleBlink(){
+  blinkState = !blinkState;
+
+  if( blinkState ){
+    vTaskResume(taskHandle);
+  }
+  else{
+    vTaskSuspend(taskHandle);    
+  }
 }

@@ -40,7 +40,7 @@ void setup()
   ///////////////////////////////////////////////////////
   // Motor
   ifMotors.init();  
-  ifMotors.move( 1000, 1000);    
+  ifMotors.move( 400, 400);    
 
   ///////////////////////////////////////////////////////
   // Encoder : Cable is crossed !!!

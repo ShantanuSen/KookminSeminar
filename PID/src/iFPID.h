@@ -36,7 +36,8 @@ class iFPID {
 
          double error = 0.0;
 
-        // Integral term double errorI = 0.0 ;
+        // Integral term 
+        double errorI = 0.0 ;
         
 
         // Differential term

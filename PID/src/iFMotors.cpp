@@ -1,12 +1,14 @@
-#include "iFMotor.h"
+#include "iFMotors.h"
 
-void iFMotor::init(){
-
+void iFMotors::init(){
+    
+    // configure LED PWM functionalitites
     ledcSetup(LEFT_F_CH, FREQUENCY, _nPWMResBit);
     ledcSetup(LEFT_R_CH, FREQUENCY, _nPWMResBit);
     ledcSetup(RIGHT_F_CH, FREQUENCY, _nPWMResBit);                
     ledcSetup(RIGHT_R_CH, FREQUENCY, _nPWMResBit);
 
+    // attach pin to pwm channel (16 channels available)
     ledcAttachPin(LEFT_F, LEFT_F_CH);                  
     ledcAttachPin(LEFT_R, LEFT_R_CH);
     ledcAttachPin(RIGHT_F, RIGHT_F_CH);   
@@ -22,7 +24,7 @@ void iFMotor::init(){
     motorStop ();  
 }
 
-void  iFMotor :: motorStop ()
+void  iFMotors :: motorStop ()
 {
     ledcWrite(LEFT_F_CH, 0 );
     ledcWrite(LEFT_R_CH, 0 ); 
@@ -30,7 +32,7 @@ void  iFMotor :: motorStop ()
     ledcWrite(RIGHT_R_CH, 0 );                   
 }
 
-int  iFMotor::move(int lspeed, int rspeed)
+int  iFMotors::move(int lspeed, int rspeed)
 {
 
 #if 1

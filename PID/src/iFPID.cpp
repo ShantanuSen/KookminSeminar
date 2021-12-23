@@ -23,14 +23,10 @@ void iFPID::calcParameter(int Ku, double Pu){
     
 }
      
-    
 
-    
-////////////////////////
-// comment this
-/*void iFPID::init(){
+void iFPID::init(){
     timeLast = timeCurrent = millis();
-}*/
+}
 
 void iFPID::init(double Kp, double Ki, double Kd){
     this->Kp = Kp;
@@ -40,10 +36,8 @@ void iFPID::init(double Kp, double Ki, double Kd){
     timeLast = timeCurrent = millis();
 }
 
-////////////////////////
-// comment this
 
-/*void iFPID::calc(){
+void iFPID::calc(){
     timeCurrent = millis();
 
     dt = (double) ( timeCurrent - timeLast ) * 0.001 ; 
@@ -51,7 +45,9 @@ void iFPID::init(double Kp, double Ki, double Kd){
     error = setpoint - input;
 
     // Integral term
-     errorI + = error * dt; if (errorI> outMax) errorI = outMax; else if (errorI <outMin) errorI = outMin;
+     errorI += error * dt; 
+     if (errorI> outMax) errorI = outMax; 
+     else if (errorI <outMin) errorI = outMin;
     
      
 
@@ -67,7 +63,7 @@ void iFPID::init(double Kp, double Ki, double Kd){
 
     inputLast = input;
     timeLast = timeCurrent;
-}*/
+}
 
 void iFPID::calc(double in, double* pMotorValues){
     setInput( in );

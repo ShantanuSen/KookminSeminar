@@ -73,7 +73,7 @@ void iFEncoder::taskSpeedNotification(void *pvParameters)
   uint32_t speed;
   for (;;)
   {  
-    speed = abs(getCountLeftReset()) + abs(getCountRightReset()) / 2;
+    speed = (abs(getCountLeftReset()) + abs(getCountRightReset())) / 2;
     Serial.print("speed: ");
     Serial.println(String(speed));
     prevSpeed = speed;

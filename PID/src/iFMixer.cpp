@@ -16,20 +16,21 @@ iFMixer::iFMixer(){
 }
 
 void iFMixer::init(){
-
+    ifMotors.init();
 }
 
 void iFMixer::writeMotor(uint8_t index, int value){
-    motors[index].move( value );
+    // motors[index].move( value );
 }
 
 void iFMixer::run(double *motorVals)
 {
 
-    for (uint8_t i = 0; i < MAXMOTORS; i++) {
-        writeMotor(i, (int)motorVals[i]);
-    }
-
+    ifMotors.move(motorVals[0], motorVals[1]);
+    // for (uint8_t i = 0; i < MAXMOTORS; i++) {
+    //     writeMotor(i, (int)motorVals[i]);
+    // }
+    
 
 }
 
@@ -41,5 +42,6 @@ void iFMixer::stop(void)
 }
 
 int iFMixer::getMaxOutput(){
-    return motors[0].getMaxSpeed();
+    // return motors[0].getMaxSpeed();
+    return 1023;
 }

@@ -11,7 +11,7 @@ iFZero, iFLine, iFBalance
 #pragma once
 
 #include <Arduino.h>
-#include "iFMotor.h"
+#include "iFMotors.h"
 
 #define MAXMOTORS   2
 
@@ -29,10 +29,12 @@ class  iFMixer {
 
     private:
 
-        iFMotor motors[2] = { 
-            iFMotor(LEFT_F, LEFT_R, LEFT_F_CH, LEFT_R_CH), 
-            iFMotor(RIGHT_F, RIGHT_R, RIGHT_F_CH, RIGHT_R_CH), 
-        };
+        // iFMotor motors[2] = { 
+        //     iFMotor(LEFT_F, LEFT_R, LEFT_F_CH, LEFT_R_CH), 
+        //     iFMotor(RIGHT_F, RIGHT_R, RIGHT_F_CH, RIGHT_R_CH), 
+        // };
+
+        iFMotors ifMotors;
 
     public:        
  

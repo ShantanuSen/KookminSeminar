@@ -28,14 +28,14 @@
 #define PWM_RES                 (10)
 #define PWM_BASE_FREQ           (5 * 1000) // 5 kHz
 
-class iFMotor{
+class iFMotors{
     private:
         const int _nPWMResBit = 10;
         int _nMaxSpeed;
         int _nType = 1;
 
     public:
-        iFMotor(){}
+        iFMotors(){}
 
         void init();
 

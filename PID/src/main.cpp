@@ -28,7 +28,7 @@ iFPID         ifPid;
 
 void setup()
 { 
-  Serial.begin( 921600 );
+  Serial.begin( 115200 );
 
   Wire.begin(21, 22, I2Cclock);
 
@@ -44,6 +44,7 @@ void setup()
   ifMixer.init();
   ifPid.init();
   ifPid.SetOutputLimits( -ifMixer.getMaxOutput(), ifMixer.getMaxOutput());
+
 
   ///////////////////////////////////////////////////////
   // Encoder

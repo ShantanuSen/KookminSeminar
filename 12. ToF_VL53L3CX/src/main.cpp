@@ -27,5 +27,4 @@ void loop() {
   distance = ifVL53LX.getDistance();
 
   Serial.println("Distance: " + String(distance) + " mm");
-  delay(1000);
 }
